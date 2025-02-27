@@ -61,4 +61,31 @@ else if( plant_count < (0.50 * max_area))
 //PART2
 //Amount of space additionally required if they start with 100 plants and continue till 10 weeks
 plant_count = 100;
+//After week 10 the space required
 
+const exparea = areaperplant * 100;
+const areaat10week = (exparea *2)*10;
+
+console.log("Expanded area after 10 weeks " + areaat10week);
+console.log("Additional space required is " + (areaat10week - max_area));
+
+//radius of the expanded space
+console.log("Radius of the expanded garden " + (Math.sqrt(areaat10week/pi)));
+
+//part 3
+//try catch
+let areawith100plants;
+try{
+    areawith100plants = areaperplant * 100 ;
+    if( areawith100plants > max_area)
+    {
+        throw "Error - the no of plants provided exceeds the original area provided";
+    }
+}
+catch(err)
+{
+    console.log(err);
+}
+finally{
+    console.log("The area required with 100 plants is " + areawith100plants + " which is higher than the provided area " + max_area );
+}
